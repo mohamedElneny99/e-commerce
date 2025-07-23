@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { CommonModule } from '@angular/common';
+
 import { AuthService } from './service/auth.service';
 import { FooterComponent } from './footer/footer.component';
 
@@ -10,7 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent , FooterComponent , CommonModule],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent  {

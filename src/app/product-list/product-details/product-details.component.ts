@@ -1,6 +1,6 @@
 
 
-import { NgIf, NgStyle } from '@angular/common';
+import { NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { productDetails } from '../../classes/product';
@@ -10,7 +10,7 @@ import { CartService } from '../../service/cart.service';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [NgStyle, NgIf, RouterLink],
+  imports: [NgStyle, RouterLink],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })

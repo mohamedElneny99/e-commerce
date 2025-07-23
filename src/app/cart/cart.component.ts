@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
 import { productDetails } from '../classes/product';
-import { CommonModule } from '@angular/common';
+
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive],
 })
 export class CartComponent implements OnInit {
   cartItems: productDetails[] = [];

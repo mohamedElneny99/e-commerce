@@ -1,14 +1,20 @@
 <!-- Show header unless on login/signup/forgot-password -->
-<app-header *ngIf="shouldShowHeader()"></app-header>
+@if (shouldShowHeader()) {
+  <app-header></app-header>
+}
 
 <main class="container mt-4">
-  <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center vh-100">
-  <div class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>
+  @if (isLoading) {
+    <div class="d-flex justify-content-center align-items-center vh-100">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  }
 
-<router-outlet *ngIf="!isLoading"></router-outlet>
+  @if (!isLoading) {
+    <router-outlet></router-outlet>
+  }
   <app-footer></app-footer>
 
   <!-- <app-signals></app-signals> -->

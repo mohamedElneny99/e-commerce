@@ -5,29 +5,35 @@
   <span class="visually-hidden">Loading...</span>
 </div> -->
 
-  <button class="btn btn-primary mb-3" (click)="showCreateTask = !showCreateTask">
-    {{ showCreateTask ? 'Hide Task Form' : 'Add Task' }}
-  </button>
-  <button class="btn btn-danger mb-3 btn-md" *ngIf="showCreateTask" (click)="deleteAllTasks()">Delete All</button>
+<button class="btn btn-primary mb-3" (click)="showCreateTask = !showCreateTask">
+  {{ showCreateTask ? 'Hide Task Form' : 'Add Task' }}
+</button>
+@if (showCreateTask) {
+  <button class="btn btn-danger mb-3 btn-md" (click)="deleteAllTasks()">Delete All</button>
+}
 
-  <!-- عرض الفورم إذا كان showCreateTask = true -->
-  <app-create-task *ngIf="showCreateTask"></app-create-task>
+<!-- عرض الفورم إذا كان showCreateTask = true -->
+@if (showCreateTask) {
+  <app-create-task></app-create-task>
+}
 
-  <!-- عرض قائمة التاسكات إذا كان showCreateTask = true -->
-  <div class="mt-4" *ngIf="showCreateTask">
-    <div *ngFor="let task of tasks$ | async" class="card p-3 mb-3 shadow-sm">
-      <h5>{{ task.title }}</h5>
-      <p>{{ task.desc }}</p>
-      <p><strong>Assigned to:</strong> {{ task.assignedTo }}</p>
-      <p><strong>Priority:</strong> {{ task.priority }}</p>
-      <p><strong>Status:</strong> {{ task.status }}</p>
-      <p><strong>Created:</strong> {{ formatDate(task.createdAt) }}</p>
-
-      <button class="btn btn-danger btn-sm" (click)="deleteTask(task.id)">Delete</button>
-      <button class="btn btn-info">
-    <img src="/app/tasks/dashboard/edit-button.png"  style="width: 16px; height: 16px;" alt="Edit-Task"></button>
-
+<!-- عرض قائمة التاسكات إذا كان showCreateTask = true -->
+@if (showCreateTask) {
+  <div class="mt-4">
+    @for (task of tasks$ | async; track task) {
+      <div class="card p-3 mb-3 shadow-sm">
+        <h5>{{ task.title }}</h5>
+        <p>{{ task.desc }}</p>
+        <p><strong>Assigned to:</strong> {{ task.assignedTo }}</p>
+        <p><strong>Priority:</strong> {{ task.priority }}</p>
+        <p><strong>Status:</strong> {{ task.status }}</p>
+        <p><strong>Created:</strong> {{ formatDate(task.createdAt) }}</p>
+        <button class="btn btn-danger btn-sm" (click)="deleteTask(task.id)">Delete</button>
+        <button class="btn btn-info">
+          <img src="/app/tasks/dashboard/edit-button.png"  style="width: 16px; height: 16px;" alt="Edit-Task"></button>
+        </div>
+      }
     </div>
-  </div>
+  }
 </div>
 

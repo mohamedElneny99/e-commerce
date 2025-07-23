@@ -1,4 +1,4 @@
-import { CommonModule, NgFor, NgIf, NgStyle } from '@angular/common';
+import { CommonModule, NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductsService } from '../service/products.service';
@@ -11,7 +11,7 @@ import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-product-list',
-  imports: [FormsModule , CommonModule, NgFor, NgIf, NgStyle , RouterModule  ],
+  imports: [FormsModule, CommonModule, NgStyle, RouterModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })

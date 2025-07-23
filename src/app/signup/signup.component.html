@@ -5,13 +5,17 @@
         <div class="card-body p-4">
           <h3 class="text-center mb-4 fw-bold text-success">Create Account</h3>
 
-          <div *ngIf="success" class="alert alert-success text-center">
-            Signup successful! Redirecting...
-          </div>
+          @if (success) {
+            <div class="alert alert-success text-center">
+              Signup successful! Redirecting...
+            </div>
+          }
 
-          <div *ngIf="signupFailed" class="alert alert-danger text-center">
-            Signup failed. Please try again.
-          </div>
+          @if (signupFailed) {
+            <div class="alert alert-danger text-center">
+              Signup failed. Please try again.
+            </div>
+          }
 
           <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
             <!-- Email -->
@@ -23,46 +27,62 @@
                 class="form-control"
                 formControlName="email"
                 [ngClass]="{'is-invalid': signupForm.get('email')?.invalid && signupForm.get('email')?.touched}"
-              />
-              <div class="invalid-feedback" *ngIf="signupForm.get('email')?.errors">
-                <span *ngIf="signupForm.get('email')?.errors['required']">Email is required.</span>
-                <span *ngIf="signupForm.get('email')?.errors['email']">Enter a valid email.</span>
+                />
+                @if (signupForm.get('email')?.errors) {
+                  <div class="invalid-feedback">
+                    @if (signupForm.get('email')?.errors['required']) {
+                      <span>Email is required.</span>
+                    }
+                    @if (signupForm.get('email')?.errors['email']) {
+                      <span>Enter a valid email.</span>
+                    }
+                  </div>
+                }
               </div>
-            </div>
 
-            <!-- Password -->
-            <div class="mb-3">
-              <label for="password" class="form-label">Password</label>
-              <input
-                type="password"
-                id="password"
-                class="form-control"
-                formControlName="password"
-                [ngClass]="{'is-invalid': signupForm.get('password')?.invalid && signupForm.get('password')?.touched}"
-              />
-              <div class="invalid-feedback" *ngIf="signupForm.get('password')?.errors">
-                <span *ngIf="signupForm.get('password')?.errors['required']">Password is required.</span>
-                <span *ngIf="signupForm.get('password')?.errors['minlength']">Minimum 6 characters.</span>
-              </div>
-            </div>
+              <!-- Password -->
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  formControlName="password"
+                  [ngClass]="{'is-invalid': signupForm.get('password')?.invalid && signupForm.get('password')?.touched}"
+                  />
+                  @if (signupForm.get('password')?.errors) {
+                    <div class="invalid-feedback">
+                      @if (signupForm.get('password')?.errors['required']) {
+                        <span>Password is required.</span>
+                      }
+                      @if (signupForm.get('password')?.errors['minlength']) {
+                        <span>Minimum 6 characters.</span>
+                      }
+                    </div>
+                  }
+                </div>
 
-            <!-- Submit -->
-            <div class="d-grid mb-3">
-              <button class="btn btn-success" type="submit" [disabled]="loading || signupForm.invalid">
-                <span *ngIf="!loading">Sign Up</span>
-                <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-              </button>
-            </div>
+                <!-- Submit -->
+                <div class="d-grid mb-3">
+                  <button class="btn btn-success" type="submit" [disabled]="loading || signupForm.invalid">
+                    @if (!loading) {
+                      <span>Sign Up</span>
+                    }
+                    @if (loading) {
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    }
+                  </button>
+                </div>
 
-            <!-- Login Link -->
-            <div class="text-center">
-              <small>Already have an account?
-                <a routerLink="/login" routerLinkActive="active" class="text-decoration-none fw-bold">Login</a>
-              </small>
+                <!-- Login Link -->
+                <div class="text-center">
+                  <small>Already have an account?
+                    <a routerLink="/login" routerLinkActive="active" class="text-decoration-none fw-bold">Login</a>
+                  </small>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>

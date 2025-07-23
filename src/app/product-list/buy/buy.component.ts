@@ -1,11 +1,11 @@
 import { FormsModule } from '@angular/forms';
-import { CommonModule  } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-buy',
-  imports: [CommonModule , FormsModule ],
+  imports: [FormsModule],
   templateUrl: './buy.component.html',
   styleUrl: './buy.component.css'
 })
