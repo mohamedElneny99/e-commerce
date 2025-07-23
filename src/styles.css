@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+/* Quantity Selector Styles
+.input-group {
+  max-width: 150px;
+  margin: 0 auto 1rem;
+}
+
+.input-group .form-control {
+  background-color: white;
+}
+
+/* Product Card Styles
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Toast Notification
+.toast {
+  transition: opacity 0.3s ease;
+}
+
+/* Button Styles
+.btn-outline-primary {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

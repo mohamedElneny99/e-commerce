@@ -1,0 +1,9 @@
+<div class="container my-5">
+  <h3>Add New Product</h3>
+  <form (ngSubmit)="addProduct()" #productForm="ngForm">
+    <input type="text" class="form-control my-2" placeholder="Name" [(ngModel)]="name" name="name" required>
+    <input type="number" class="form-control my-2" placeholder="Price" [(ngModel)]="price" name="price" required>
+    <input type="file" class="form-control my-2" (change)="uploadImage($event)">
+    <button type="submit" class="btn btn-primary mt-2" [disabled]="!productForm.form.valid">Add</button>
+  </form>
+</div>

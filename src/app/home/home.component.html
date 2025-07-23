@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <h1>👋 Welcome to MyApp</h1>
+    <p *ngIf="isLoggedIn; else notLoggedIn">Glad to see you back, <strong>{{ userEmail }}</strong>!</p>
+    <ng-template #notLoggedIn>
+      <p>
+        Please <a routerLink="/login">Login</a> or <a routerLink="/signup">Sign Up</a> to explore our latest products.
+      </p>
+    </ng-template>
+  </div>
+
+  <div *ngIf="isLoggedIn">
+    <h3 class="mb-4">🔥 Best Sellers</h3>
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let product of topProducts">
+        <div class="card h-100 shadow-sm">
+          <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: contain;">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="text-muted">{{ product.brand }}</p>
+            <p><strong>${{ product.price }}</strong></p>
+            <a class="btn btn-outline-primary w-100" [routerLink]="['/product', product.id]">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

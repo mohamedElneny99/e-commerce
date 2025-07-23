@@ -1,0 +1,16 @@
+.card:hover {
+  transform: scale(1.03);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: white;
+  border-color: #0d6efd;
+  transition: all 0.3s ease;
+}
+
+button {
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,11 @@
+<div class="container mt-4 text-center">
+  <h2>Signal Counter</h2>
+
+  <p class="lead">{{ conditionalCount() }}</p>
+
+  <button class="btn btn-primary me-2" (click)="increment()">Increment</button>
+  <button class="btn btn-danger me-2" (click)="decrement()">Decrement</button>
+  <button class="btn btn-secondary" (click)="toggleShowCount()">
+    {{ showCount() ? 'Hide Count' : 'Show Count' }}
+  </button>
+</div>

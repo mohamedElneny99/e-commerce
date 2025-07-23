@@ -1,0 +1,20 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="card p-3 mt-3 shadow-sm">
+  <input class="form-control mb-2" formControlName="title" placeholder="Title" />
+  <textarea class="form-control mb-2" formControlName="desc" placeholder="Description"></textarea>
+  <input class="form-control mb-2" formControlName="assignedTo" placeholder="Assigned To" />
+
+  <select class="form-control mb-2" formControlName="priority">
+    <option>Low</option>
+    <option>Medium</option>
+    <option>High</option>
+    <option>Critical</option>
+  </select>
+
+  <select class="form-control mb-2" formControlName="status">
+    <option>Pending</option>
+    <option>In Progress</option>
+    <option>Completed</option>
+  </select>
+
+  <button class="btn btn-success">Add Task</button>
+</form>
