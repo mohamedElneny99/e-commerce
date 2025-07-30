@@ -9,6 +9,7 @@ export class productDetails {
     brand: string;
     is_in_inventory: boolean;
     rating: number;
+    quantity?: number;
 }
 
 

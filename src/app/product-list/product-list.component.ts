@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { ProductsService } from '../service/products.service';
 import { productDetails } from '../classes/product';
 import {ActivatedRoute, RouterModule} from '@angular/router';
-import { CartService } from '../service/cart.service';
-
-
+// import { CartService } from '../service/cart.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
+import { addToCart } from '../cart/cart.action';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductsService,
     private activeRoute: ActivatedRoute,
-    private cartService: CartService
+    // private cartService: CartService
+    private store: Store<AppState>
   ) {}
 
   ngOnInit() {
@@ -56,13 +58,13 @@ export class ProductListComponent implements OnInit {
   }
 
   addToCart(product: productDetails) {
-    this.cartService.addToCart(product);
+    // this.cartService.addToCart(product);
+      const item = { ...product, quantity: 1 };
+      this.store.dispatch(addToCart({ item }));
     this.toastMessage = `${product.name} added to cart!`;
     this.showToast = true;
     setTimeout(() => (this.showToast = false), 3000);
   }
-
-
 
 }
 

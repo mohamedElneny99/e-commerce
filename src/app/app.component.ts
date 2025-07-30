@@ -36,3 +36,9 @@ export class AppComponent  {
 
 
  }
+
+
+
+  // "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+  //               "node_modules/primeng/resources/primeng.min.css",
+  //               "node_modules/primeicons/primeicons.css",
